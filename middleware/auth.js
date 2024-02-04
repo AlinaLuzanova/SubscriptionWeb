@@ -1,22 +1,22 @@
-const { User } = require('../db/models/index');
+const { User } = require('../db/models/index')
 
 const resLocals = (req, res, next) => {
-    if (req.session.userId) {
-        res.locals.userId = req.session.userId;
-    }
-    next();
-};
+  if (req.session.userId) {
+    res.locals.userId = req.session.userId
+  }
+  next()
+}
 
 const getUser = async (req, res, next) => {
-    if (req.session.userId) {
-        const user = await User.findByPk(+req.session.userId);
-        if (user.id) {
-            res.locals.user = { username: user.username, id: user.id };
-        } else {
-            res.status(500).redirect('/');
-        }
+  if (req.session.userId) {
+    const user = await User.findByPk(+req.session.userId)
+    if (user.id) {
+      res.locals.user = { email: user.email, id: user.id }
+    } else {
+      res.status(500).redirect('/')
     }
-    next();
-};
+  }
+  next()
+}
 
-module.exports = { getUser, resLocals };
+module.exports = { getUser, resLocals }
