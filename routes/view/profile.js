@@ -2,26 +2,37 @@ const router = require('express').Router()
 const { User, UserChannel, Channel } = require('../../db/models')
 const Profile = require('../../components/pages/ProfilePage')
 router.route('/').get(async (req, res, next) => {
-  const user = await User.findByPk(res.locals.user.id, {
-    include: [
-      {
-        model: Channel,
-        through: {
-          model: UserChannel,
-        },
-      },
-    ],
-  })
-  const channelsCost = await user.Channels.reduce((acc, channel) => {
-    acc + channel.cost
-  }, 0)
-
+  const userId = req.session.user
+  const user = await User.findByPk(userId)
   if (user) {
+    const channels = await Channel.findAll({
+      include: [
+        {
+          model: User,
+          where: { id: userId },
+          through: { attributes: [] },
+        },
+      ],
+      raw: true,
+    })
+
+    const totalCost = await Channel.sum('cost', {
+      include: [
+        {
+          model: User,
+          where: { id: userId },
+          through: { attributes: [] },
+        },
+      ],
+      group: ['Users.id'],
+      raw: true,
+    })
+
     res.send(
       res.renderComponent(Profile, {
-        user: res.locals.user,
-        channels: user.Channels,
-        cost: channelsCost,
+        user: user,
+        channels: channels,
+        cost: totalCost,
       }),
     )
   } else {

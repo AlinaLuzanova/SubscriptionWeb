@@ -8,7 +8,7 @@ router.route('/').post(async (req, res) => {
     if (!user && password === password2) {
       const hashedPassword = await bcrypt.hash(password, 10)
       const dbRes = await User.create({ email, password: hashedPassword })
-      res.locals.user = dbRes.id
+      req.session.user = dbRes.id
       res.status(200).json({ status: 200, message: 'user created' })
     } else {
       res.status(404).json({ message: 'error while register' })

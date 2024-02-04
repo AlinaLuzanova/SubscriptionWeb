@@ -1,8 +1,8 @@
 const React = require('react')
 const Layout = require('../Layout')
-module.exports = function LoginPage({ title }) {
+module.exports = function LoginPage({ title, user }) {
   return (
-    <Layout title="Login page">
+    <Layout title={title} user={user}>
       <h2>Login</h2>
       <form method="POST" action="/api/login" name="login-form">
         <label>

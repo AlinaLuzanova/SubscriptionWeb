@@ -3,7 +3,7 @@ const Layout = require('../Layout')
 
 module.exports = function HomePage({ channels, title, user }) {
   return (
-    <Layout title="Home page" user={user}>
+    <Layout title={title} user={user}>
       <h2>Home Page</h2>
       <ul>
         {channels.map((channel) => (

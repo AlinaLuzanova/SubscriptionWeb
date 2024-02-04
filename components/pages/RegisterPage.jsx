@@ -2,7 +2,7 @@ const React = require('react')
 const Layout = require('../Layout')
 module.exports = function RegisterPage({ title }) {
   return (
-    <Layout title="Sign Up page">
+    <Layout title={title}>
       <h2>Sign Up</h2>
       <form method="POST" action="/api/register" name="register-form">
         <label>
