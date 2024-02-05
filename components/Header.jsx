@@ -2,6 +2,7 @@ const React = require('react')
 module.exports = function Header({ user }) {
   return (
     <div className="header">
+      <img src="/colorLogo.png" id="logo" alt="logo" />
       <div>
         <a href="/">Home</a>
       </div>
