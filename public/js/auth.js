@@ -36,9 +36,9 @@ registerForm.addEventListener('submit', async (event) => {
     })
 
     const data = await response.json()
-    if (data.message === 'user created') {
-      alert('Successful!')
+    if (data.message === 'OK') {
       window.location.href = '/profile'
+      alert('Successful!')
     } else {
       alert('Unsuccessful!')
     }

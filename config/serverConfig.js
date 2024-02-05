@@ -5,7 +5,7 @@ const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const ssr = require('../middleware/ssr')
 const { getUser, resLocals } = require('../middleware/auth')
-//добавить мидлвару аутс
+// добавить мидлвару аутс
 
 const sessionConfig = {
   store: new FileStore(),

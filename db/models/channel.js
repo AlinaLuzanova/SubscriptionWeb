@@ -1,5 +1,5 @@
-'use strict'
 const { Model } = require('sequelize')
+
 module.exports = (sequelize, DataTypes) => {
   class Channel extends Model {
     /**
@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
         through: 'UserChannels',
         foreignKey: 'channel_id',
       })
+      Channel.belongsTo(User, {
+        foreignKey: 'creator_id',
+      })
     }
   }
   Channel.init(
@@ -20,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       cost: DataTypes.INTEGER,
       img: DataTypes.STRING,
+      creator_id: DataTypes.INTEGER,
     },
     {
       sequelize,

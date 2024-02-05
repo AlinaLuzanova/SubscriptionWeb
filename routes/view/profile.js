@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { User, UserChannel, Channel } = require('../../db/models')
 const Profile = require('../../components/pages/ProfilePage')
+
 router.route('/').get(async (req, res, next) => {
   const userId = req.session.user
   const user = await User.findByPk(userId)
@@ -27,12 +28,19 @@ router.route('/').get(async (req, res, next) => {
       group: ['Users.id'],
       raw: true,
     })
+    const usersChannels = await Channel.findAll({
+      where: {
+        creator_id: req.session.user,
+      },
+      raw: true,
+    })
 
     res.send(
       res.renderComponent(Profile, {
-        user: user,
-        channels: channels,
+        user,
+        channels,
         cost: totalCost,
+        usersSubscribtions: usersChannels,
       }),
     )
   } else {

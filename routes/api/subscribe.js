@@ -37,9 +37,8 @@ router.route('/:id').delete(async (req, res) => {
 
     if (result > 0) {
       return res.status(200).json({ text: 'OK' })
-    } else {
-      return res.status(404).json({ text: 'Error' })
     }
+    return res.status(404).json({ text: 'Error' })
   } catch (e) {
     console.log(e)
     return res.status(500).end()

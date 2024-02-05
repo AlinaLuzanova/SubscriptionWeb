@@ -1,7 +1,12 @@
 const React = require('react')
 const Layout = require('../Layout')
 
-module.exports = function ProfilePage({ user, channels, cost }) {
+module.exports = function ProfilePage({
+  user,
+  channels,
+  cost,
+  usersSubscribtions,
+}) {
   return (
     <Layout title="Profile" user={user}>
       <div className="profilePage">
@@ -28,6 +33,31 @@ module.exports = function ProfilePage({ user, channels, cost }) {
           ))}
         </ul>
         <h4>General cost: {cost}$</h4>
+        <div className="mySubscriptions">
+          <h2>Subscribtions by {user.email}</h2>
+          {usersSubscribtions ? (
+            <ul>
+              {usersSubscribtions.map((sub) => (
+                <li key={sub.id}>
+                  <h2>
+                    <a href={`/channels/${sub.id}`} key={sub.id}>
+                      {sub.title}
+                    </a>
+                  </h2>
+                  <a
+                    href={`/channels/edit/${sub.id}`}
+                    className='editLink'
+                  >
+                    Edit
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <h3>You didn't create any subscription</h3>
+          )}
+        </div>
+        <a href={`/subscribtions/new/${user.id}`}>Create new subscribtion</a>
       </div>
     </Layout>
   )

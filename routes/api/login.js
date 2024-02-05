@@ -1,10 +1,11 @@
 const router = require('express').Router()
-const { User } = require('../../db/models')
 const bcrypt = require('bcrypt')
+const { User } = require('../../db/models')
+
 router.route('/').post(async (req, res) => {
   try {
     const { email, password } = req.body
-    const user = await User.findOne({ where: { email: email } })
+    const user = await User.findOne({ where: { email } })
     const isSamePassword = await bcrypt.compare(password, user.password)
     if (user && isSamePassword) {
       req.session.user = user.id

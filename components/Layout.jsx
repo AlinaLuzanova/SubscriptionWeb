@@ -8,10 +8,17 @@ function Layout({ title = 'Home Page', children, user }) {
         <title>{title}</title>
         <script defer src="/js/auth.js"></script>
         <script defer src="/js/subscribe.js"></script>
+        <script defer src="/js/createSubscribtion.js"></script>
         <link rel="stylesheet" href="/css/style.css" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          sizes="16x16"
+          href="/favicon.ico"
         />
       </head>
       <body>

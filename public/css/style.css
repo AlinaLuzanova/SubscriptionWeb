@@ -1,137 +1,138 @@
-body{
-  margin:0;
+body {
+  margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-    color: white;
-    background-color: #141311;
+  color: white;
+  background-color: #141311;
 }
 .headerEmail {
-    text-align: right;
-    padding-right: 3%;
+  text-align: right;
+  padding-right: 3%;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-    background-color: rgba(20, 19, 17, 0.85);
+  background-color: rgba(20, 19, 17, 0.85);
   height: 10vh;
   width: 100%;
-    padding: 1% 3% 1%;
-    -webkit-box-shadow:0px 0px 61px 13px rgb(255, 255, 255);
-    -moz-box-shadow: 0px 0px 61px 13px rgb(255, 255, 255);
-    box-shadow: 0px 0px 61px 13px rgb(255, 255, 255);
+  padding: 1% 3% 1%;
+  -webkit-box-shadow: 0px 0px 61px 13px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 61px 13px rgb(255, 255, 255);
+  box-shadow: 0px 0px 61px 13px rgb(255, 255, 255);
 }
-.channelPage{
-    display: flex;
-    align-items: center;
+.channelPage {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.channelLeft, .channelRight{
-    width:50%;
-    display: flex;
-    flex-direction: column;
-    padding-left:3%
+.channelLeft,
+.channelRight {
+  display: flex;
+  flex-direction: column;
 }
-.channelLeft>img{
-    width:50vw;
-    height: auto;
-    border-radius: 10px;
+.channelLeft > img {
+  width: 50vw;
+  height: auto;
+  border-radius: 10px;
 }
-.channelRight>*{
-    margin-bottom: 3%;
+
+.channelRight > * {
+  margin-bottom: 3%;
 }
-.subscribeBTN{
-    width:10vw;
-    height:2em;
-    border:none;
-    border-radius: 10px;
-    color:white;
-    background-color: #39adff;
-    min-width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.subscribeBTN {
+  width: 10vw;
+  height: 2em;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #39adff;
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.unsubscribeBTN{
-    width:10vw;
-    height:2em;
-    border:none;
-    border-radius: 10px;
-    color:white;
-    background-color: #ff00c8;
-    min-width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.unsubscribeBTN {
+  width: 10vw;
+  height: 2em;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #ff00c8;
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-li{
+li {
   list-style: none;
 }
-a{
+a {
   text-decoration: none;
   color: white;
 }
-.homePage{
- display: flex;
+.homePage {
+  display: flex;
   flex-direction: column;
   padding-left: 10%;
 }
-#logo{
-    height: inherit;
-    width: auto+10%;
+#logo {
+  height: inherit;
+  width: auto + 10%;
 }
-h1{
-    padding-top: 1%;
-    font-size: 3em;
+h1 {
+  padding-top: 1%;
+  font-size: 3em;
 }
-.authForm{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: fit-content;
-    width:40%;
+.authForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: fit-content;
+  width: 40%;
 }
-.authForm>*{
-    margin-bottom:2%;
-    display:flex;
-    justify-content: space-between;
+.authForm > * {
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: space-between;
 }
-.authForm>button{
-    width:10vw;
-    height:2em;
-    border:none;
-    border-radius: 10px;
-    color:white;
-    background-color: #5500ff;
-    min-width: fit-content;
-    max-width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2%;
-    font-size: 1.5em;
+.authForm > button {
+  width: 10vw;
+  height: 2em;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #5500ff;
+  min-width: fit-content;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  font-size: 1.5em;
 }
-.authForm>label>input{
-margin-left: 2%;
-    border-radius: 10px;
-    font-size: 1em;
+.authForm > label > input {
+  margin-left: 2%;
+  border-radius: 10px;
+  font-size: 1em;
 }
-.authForm>label{
-    font-size: 1.5em;
+.authForm > label {
+  font-size: 1.5em;
 }
-.authPage{
-    margin-left: 2%;
+.authPage {
+  padding-left: 10%;
 }
-.h3Container{
-    background-color: #9663ff;
-    border-radius: 20px;
-    width:fit-content;
-    padding: .5%;
-    max-width: 80%;
-    line-height: 1.5;
+.h3Container {
+  background-color: #9663ff;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 0 1%;
+  max-width: 80%;
+  line-height: 1.5;
 }
-.profilePage{
-    display: flex;
-    flex-direction: column;
-    margin-left:3%
+.profilePage {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
 }

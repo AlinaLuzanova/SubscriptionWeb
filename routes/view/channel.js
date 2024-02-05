@@ -17,9 +17,9 @@ router.route('/:id').get(async (req, res) => {
     res.send(
       res.renderComponent(ChannelPage, {
         channel,
-        user: user,
+        user,
         subscribers: amoiuntOfSubscribers.length,
-        isSubscribed: flag ? true : false,
+        isSubscribed: !!flag,
       }),
     )
   }
