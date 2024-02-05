@@ -1,0 +1,52 @@
+{
+  "name": "cable-channels-web-app",
+  "version": "1.0.0",
+  "description": "Пожалуйста, постарайтесь справиться с этим заданием за 3 часа.  Если Вы не закончите выполнение этой задачи в течение трех часов, не забудьте сделать `commit` по истечении трех часов, и после продолжайте работу. Помните, на экзамене время будет ограничено и текущая практика укажет на что особенно много требуется времени.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js --ext js,jsx,json,css --ignore sessions",
+    "start": "node app.js",
+    "db:up": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlinaLuzanova/cable-channels-web-app.git"
+  },
+  "keywords": [],
+  "author": "Alina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlinaLuzanova/cable-channels-web-app/issues"
+  },
+  "homepage": "https://github.com/AlinaLuzanova/cable-channels-web-app#readme",
+  "dependencies": {
+    "@babel/core": "^7.17.12",
+    "@babel/preset-env": "^7.17.12",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/register": "^7.17.7",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.1",
+    "express": "~4.16.0",
+    "express-session": "^1.18.0",
+    "morgan": "~1.9.0",
+    "nodemon": "^3.0.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "session-file-store": "^1.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.2.5",
+    "sequelize-cli": "^6.2.0"
+  }
+}
