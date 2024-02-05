@@ -8,7 +8,8 @@ function Layout({ title = 'Home Page', children, user }) {
         <title>{title}</title>
         <script defer src="/js/auth.js"></script>
         <script defer src="/js/subscribe.js"></script>
-        <script defer src="/js/createSubscribtion.js"></script>
+        <script defer src="/js/createSubscription.js"></script>
+        <script defer src="/js/editSubscription.js"></script>
         <link rel="stylesheet" href="/css/style.css" />
         <link
           rel="stylesheet"

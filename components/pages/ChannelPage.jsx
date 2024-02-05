@@ -15,8 +15,8 @@ module.exports = function ChannelPage({
           <img src={channel.img} alt={channel.title} />
         </div>
         <div className="channelRight">
-          <h3>Subscribtion cost: {channel.cost}$</h3>
-          <h3>Amount of subscribers: {subscribers}</h3>
+          <h3>Subscription fee: {channel.cost}$</h3>
+          <h3 data-name="subscribers">Amount of subscribers: {subscribers}</h3>
           {user && (
             <>
               {isSubscribed && (

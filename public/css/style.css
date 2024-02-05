@@ -1,26 +1,41 @@
+:root {
+  --main-text-color: white;
+  --background-color: #141311;
+  --header-background: rgba(20, 19, 17, 0.85);
+  --subscribe-btn-color: #39adff;
+  --unsubscribe-btn-color: #ff00c8;
+  --auth-btn-color: #5500ff;
+  --profile-btn-color: #9663ff;
+}
+
 body {
-  margin: 0;
+  margin: 12vh 0 0 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  color: white;
-  background-color: #141311;
+  color: var(--main-text-color);
+  background-color: var(--background-color);
 }
 .headerEmail {
-  text-align: right;
-  padding-right: 3%;
+  position: fixed;
+  top:14vh;
+  right: 0;
+  white-space: nowrap;
+
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: rgba(20, 19, 17, 0.85);
+  background-color: var(--header-background);
   height: 10vh;
   width: 100%;
   padding: 1% 3% 1%;
   -webkit-box-shadow: 0px 0px 61px 13px rgb(255, 255, 255);
   -moz-box-shadow: 0px 0px 61px 13px rgb(255, 255, 255);
   box-shadow: 0px 0px 61px 13px rgb(255, 255, 255);
+  position: fixed;
+  margin-top: -12vh;
 }
 .channelPage {
   display: flex;
@@ -32,7 +47,13 @@ body {
   display: flex;
   flex-direction: column;
 }
-.channelLeft > img {
+.editPage>
+.channelRight{
+ width: 40%;
+}
+
+
+.channelLeft > img, .editIMG {
   width: 50vw;
   height: auto;
   border-radius: 10px;
@@ -41,29 +62,37 @@ body {
 .channelRight > * {
   margin-bottom: 3%;
 }
+.channelRight>.unsubscribeBTNWrap,.subscribeBTNWrap{
+  margin-top:5%
+}
+
 .subscribeBTN {
+  font-size: 1.2em;
+  border-radius: 30px;
   width: 10vw;
   height: 2em;
   border: none;
-  border-radius: 10px;
-  color: white;
-  background-color: #39adff;
+  color: var(--main-text-color);
+  background-color: var(--subscribe-btn-color);
   min-width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 6%;
 }
 .unsubscribeBTN {
+  font-size: 1.2em;
+  border-radius: 30px;
   width: 10vw;
   height: 2em;
   border: none;
-  border-radius: 10px;
-  color: white;
-  background-color: #ff00c8;
+  color: var(--main-text-color);
+  background-color: var(--unsubscribe-btn-color);
   min-width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 6%;
 }
 li {
   list-style: none;
@@ -79,49 +108,61 @@ a {
 }
 #logo {
   height: inherit;
-  width: auto + 10%;
+  width: auto;
 }
 h1 {
   padding-top: 1%;
   font-size: 3em;
 }
-.authForm {
+.authForm, .edit-create-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-width: fit-content;
-  width: 40%;
+  margin-top: 5%;
+  width: 50%;
 }
-.authForm > * {
+
+.authForm > *, .edit-create-form>* {
   margin-bottom: 2%;
   display: flex;
   justify-content: space-between;
+  white-space: nowrap;
 }
 .authForm > button {
+  font-size: 1.5em;
+  border-radius: 30px;
   width: 10vw;
   height: 2em;
   border: none;
-  border-radius: 10px;
   color: white;
-  background-color: #5500ff;
+  background-color: var(--auth-btn-color);
   min-width: fit-content;
   max-width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2%;
+  padding: 2% 5%;
   font-size: 1.5em;
+  margin-top: 4%;
 }
-.authForm > label > input {
+.authForm > label > input, .edit-create-form>label>input {
   margin-left: 2%;
   border-radius: 10px;
   font-size: 1em;
 }
-.authForm > label {
+.edit-create-form>label>input{
+  width: 50%;
+}
+.authForm > label, .edit-create-form>label {
   font-size: 1.5em;
 }
+
 .authPage {
   padding-left: 10%;
+}
+.authPage>h1{
+  padding-top: 8vh;
 }
 .h3Container {
   background-color: #9663ff;
@@ -135,4 +176,81 @@ h1 {
   display: flex;
   flex-direction: column;
   padding-left: 10%;
+}
+li{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: fit-content;
+  width: 30vw;
+}
+li>*{
+  padding-right: 2%;
+}
+.totalFee{
+  color: var(--subscribe-btn-color:);
+}
+.mySubscriptions>h2{
+  width: fit-content;
+  border:2px solid var(--main-text-color);
+  border-radius: 20px;
+  padding: 1% 3%;
+  margin-top:3%
+}
+
+.createSubLink{
+  width: fit-content;
+  border:2px solid var(--main-text-color);
+  border-radius: 20px;
+  padding: 1% 3%;
+  color:black;
+  background-color: var(--main-text-color);
+  margin-bottom: 10vh;
+}
+.new-channel{
+  padding-top: 1vh;
+  padding-left: 10%;
+  display: flex;
+  flex-direction: column;
+}
+.editPage{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1vh;
+
+}
+.editPage>.channelRight,.editPage>.channelLeft{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8%;
+}
+.editPage>.channelRight{
+  width: 30%;
+}
+.editPage>.channelLeft>form>*{
+  font-size: 1.2em;
+}
+.editPage>.channelLeft>form{
+  width: 100%;
+  justify-content: space-between;
+}
+.editCreateBTN {
+  font-size: 1.5em;
+  border-radius: 30px;
+  margin-top: 7%;
+  width: 10vw;
+  height: 2em;
+  border: none;
+  color: white;
+  background-color: var(--profile-btn-color);
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button{
+  font-family: 'Montserrat', sans-serif;
 }

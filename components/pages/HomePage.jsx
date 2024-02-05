@@ -23,8 +23,8 @@ module.exports = function HomePage({ channels, title, user }) {
             <h1>Search page</h1>
             <div className="h3Container">
               <h3>
-                Choose one to subscribe to. Or you can always create a new in
-                your profile.
+                Choose one to subscribe to. Or you can always create new in your
+                profile.
               </h3>
             </div>
           </>

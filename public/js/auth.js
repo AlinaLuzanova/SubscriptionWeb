@@ -1,7 +1,6 @@
 const loginForm = document.forms['login-form']
 const registerForm = document.forms['register-form']
-console.log(loginForm)
-console.log(registerForm)
+
 loginForm.addEventListener('submit', async (event) => {
   try {
     event.preventDefault()
@@ -24,24 +23,26 @@ loginForm.addEventListener('submit', async (event) => {
   }
 })
 registerForm.addEventListener('submit', async (event) => {
+  event.preventDefault()
   try {
-    console.log('register')
-    event.preventDefault()
-    const body = Object.fromEntries(new FormData(loginForm))
-    console.log(body)
+    const body = new FormData(registerForm)
+    console.log('----------', body)
     const response = await fetch('/api/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      body: JSON.stringify(Object.fromEntries(body)),
     })
-
+    /**
     const data = await response.json()
+    console.log(data)
     if (data.message === 'OK') {
+      console.log(data)
       window.location.href = '/profile'
       alert('Successful!')
     } else {
       alert('Unsuccessful!')
     }
+ **/
   } catch (err) {
     console.log(err.message)
   }

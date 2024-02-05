@@ -4,7 +4,7 @@ const { Channel } = require('../../db/models')
 router.route('/').post(async (req, res) => {
   try {
     const { title, cost, image } = req.body
-    const isExist = await Channel.findOne({ where: { title: title } })
+    const isExist = await Channel.findOne({ where: { title } })
     if (!isExist) {
       const channel = await Channel.create({
         title,

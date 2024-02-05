@@ -12,11 +12,12 @@ subButtonsWrap.forEach((wrap) => {
       })
       const data = await response.json()
       if (data.text === 'OK') {
-        event.target.classList.remove('subscribeBTN')
-        event.target.classList.add('unsubscribeBTN')
-        event.target.textContent = 'Unsubscribe'
+        wrap.firstElementChild.classList.remove('subscribeBTN')
+        wrap.firstElementChild.classList.add('unsubscribeBTN')
+        wrap.firstElementChild.textContent = 'Unsubscribe'
         wrap.classList.remove('subscribeBTNWrap')
         wrap.classList.add('unsubscribeBTNWrap')
+        location.reload()
       }
     }
   })
@@ -31,11 +32,12 @@ unSubButtonsWrap.forEach((wrap) => {
       })
       const data = await response.json()
       if (data.text === 'OK') {
-        event.target.classList.remove('unsubscribeBTN')
-        event.target.classList.add('subscribeBTN')
-        event.target.textContent = 'Subscribe'
+        wrap.firstElementChild.classList.remove('unsubscribeBTN')
+        wrap.firstElementChild.classList.add('subscribeBTN')
+        wrap.firstElementChild.textContent = 'Subscribe'
         wrap.classList.remove('unsubscribeBTNWrap')
         wrap.classList.add('subscribeBTNWrap')
+        location.reload()
       }
     }
   })

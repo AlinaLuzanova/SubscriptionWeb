@@ -40,7 +40,7 @@ router.route('/').get(async (req, res, next) => {
         user,
         channels,
         cost: totalCost,
-        usersSubscribtions: usersChannels,
+        usersSubscriptions: usersChannels,
       }),
     )
   } else {

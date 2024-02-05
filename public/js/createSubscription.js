@@ -1,4 +1,4 @@
-const newSubForm = document.forms['newSubForm']
+const { newSubForm } = document.forms
 
 newSubForm.addEventListener('submit', async (e) => {
   e.preventDefault()
