@@ -34,8 +34,8 @@ app.use("/channels", ChannelView);
 app.use("/subscriptions/new", NewChannelView);
 app.use("/channels/edit", EditSubscriptionView);
 
-app.use("/api/login", LoginApi);
-app.use("/api/register", RegisterApi);
+app.use("/api/auth/login", LoginApi);
+app.use("/api/auth/register", RegisterApi);
 app.use("/api/auth/logout", LogoutApi);
 app.use("/api/channel", SubscribeApi);
 app.use("/api/subscriptions/new", NewChannelApi);

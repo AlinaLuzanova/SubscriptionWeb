@@ -7,7 +7,7 @@ module.exports = function RegisterPage({ title }) {
         <h1>Sign Up</h1>
         <form
           method="POST"
-          action="/api/register"
+          action="/api/auth/register"
           name="register-form"
           className="authForm"
         >

@@ -9,8 +9,8 @@ router.route("/").post(async (req, res) => {
     if (!user && password === password2) {
       const hashedPassword = await bcrypt.hash(password, 10);
       const dbRes = await User.create({ email, password: hashedPassword });
-      req.session.user = dbRes.id;
-      res.redirect("/profile");
+      req.session.userId = dbRes.id;
+      return res.status(200).json({ message: "OK" });
     } else {
       res.status(404).json({ message: "error while register" });
     }

@@ -5,7 +5,7 @@ const ChannelPage = require("../../components/pages/ChannelPage");
 router.route("/:id").get(async (req, res) => {
   const chanId = req.params.id;
   const channel = await Channel.findByPk(chanId);
-  const user = await User.findByPk(req.session.user);
+  const user = res.locals.user;
   const amoiuntOfSubscribers = await UserChannel.findAll({
     where: { channel_id: channel.id },
     raw: true,

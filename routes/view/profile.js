@@ -2,15 +2,16 @@ const router = require("express").Router();
 const { User, UserChannel, Channel } = require("../../db/models");
 const Profile = require("../../components/pages/ProfilePage");
 
-router.route("/").get(async (req, res, next) => {
-  const userId = req.session.user;
-  const user = await User.findByPk(userId);
+router.route("/").get(async (req, res) => {
+  console.log(res.locals);
+  const user = res.locals.user;
+  console.log(user);
   if (user) {
     const channels = await Channel.findAll({
       include: [
         {
           model: User,
-          where: { id: userId },
+          where: { id: +user.id },
           through: { attributes: [] },
         },
       ],
@@ -21,7 +22,7 @@ router.route("/").get(async (req, res, next) => {
       include: [
         {
           model: User,
-          where: { id: userId },
+          where: { id: +user.id },
           through: { attributes: [] },
         },
       ],
@@ -30,7 +31,7 @@ router.route("/").get(async (req, res, next) => {
     });
     const usersChannels = await Channel.findAll({
       where: {
-        creator_id: req.session.user,
+        creator_id: res.locals.user.id,
       },
       raw: true,
     });

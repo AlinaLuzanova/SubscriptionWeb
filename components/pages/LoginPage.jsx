@@ -7,7 +7,7 @@ module.exports = function LoginPage({ title, user }) {
         <h1>Login</h1>
         <form
           method="POST"
-          action="/api/login"
+          action="/api/auth/login"
           name="login-form"
           className="authForm"
         >

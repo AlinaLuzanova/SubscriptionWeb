@@ -5,45 +5,56 @@ loginForm.addEventListener("submit", async (event) => {
   try {
     event.preventDefault();
     const body = new FormData(loginForm);
-    console.log(body);
-    const response = await fetch("/api/login", {
+    const response = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(body)),
     });
     const data = await response.json();
-    if (data.message === "OK") {
-      window.location.href = "/profile";
-      alert("Successful!");
-    } else {
-      alert("Unsuccessful!");
+    switch (response.status) {
+      case 200:
+        window.location.href = "/profile";
+        alert("Successful!");
+        break;
+      case 404:
+        alert(data.message);
+        break;
+      case 500:
+        alert("Internal Server Error");
+        break;
+      default:
+        console.error("Unexpected Error:", data.error);
     }
   } catch (err) {
-    console.log(err.message);
+    console.error("Network Error:", err.message);
   }
 });
+
 registerForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
   try {
+    event.preventDefault();
     const body = new FormData(registerForm);
-    console.log("----------", body);
-    const response = await fetch("/api/register", {
+    const response = await fetch("/api/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(body)),
     });
-    /**
-    const data = await response.json()
-    console.log(data)
-    if (data.message === 'OK') {
-      console.log(data)
-      window.location.href = '/profile'
-      alert('Successful!')
-    } else {
-      alert('Unsuccessful!')
+    const data = await response.json();
+    switch (response.status) {
+      case 200:
+        window.location.href = "/profile";
+        alert("Successful!");
+        break;
+      case 404:
+        alert(data.message);
+        break;
+      case 500:
+        alert("Internal Server Error");
+        break;
+      default:
+        console.error("Unexpected Error:", data.error);
     }
- * */
   } catch (err) {
-    console.log(err.message);
+    console.error("Network Error:", err.message);
   }
 });

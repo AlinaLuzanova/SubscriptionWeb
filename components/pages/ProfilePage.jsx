@@ -40,7 +40,7 @@ module.exports = function ProfilePage({
         <div>
           <div className="mySubscriptions">
             <h2>Subscriptions by {user.email}</h2>
-            {usersSubscriptions ? (
+            {usersSubscriptions && (
               <ul>
                 {usersSubscriptions.map((sub) => (
                   <li key={sub.id}>
@@ -55,9 +55,8 @@ module.exports = function ProfilePage({
                   </li>
                 ))}
               </ul>
-            ) : (
-              <h3>You didn't create any subscription</h3>
             )}
+            {!usersSubscriptions && <h3>You didn't create any subscription</h3>}
           </div>
           <a className="createSubLink" href={`/subscriptions/new/${user.id}`}>
             Create new subscription

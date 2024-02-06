@@ -4,7 +4,7 @@ const { User, UserChannel } = require("../../db/models");
 router.route("/:id").post(async (req, res) => {
   try {
     const channelId = req.params.id;
-    const userId = req.session.user;
+    const userId = res.locals.user.id;
 
     const existingUserChannel = await UserChannel.findOne({
       where: { user_id: userId, channel_id: channelId },
@@ -29,7 +29,7 @@ router.route("/:id").post(async (req, res) => {
 router.route("/:id").delete(async (req, res) => {
   try {
     const channelId = req.params.id;
-    const userId = req.session.user;
+    const userId = res.locals.user.id;
 
     const result = await UserChannel.destroy({
       where: { user_id: userId, channel_id: channelId },

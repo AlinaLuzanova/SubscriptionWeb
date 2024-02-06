@@ -8,8 +8,8 @@ router.route("/").post(async (req, res) => {
     const user = await User.findOne({ where: { email } });
     const isSamePassword = await bcrypt.compare(password, user.password);
     if (user && isSamePassword) {
-      req.session.user = user.id;
-      res.status(200).json({ message: "OK" });
+      req.session.userId = user.id;
+      return res.status(200).json({ message: "OK" });
     } else {
       res.status(404).json({ message: "Incorrect email or password" });
     }
