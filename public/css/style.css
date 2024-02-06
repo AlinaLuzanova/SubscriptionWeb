@@ -184,7 +184,7 @@ li {
   align-items: center;
   justify-content: space-between;
   min-width: fit-content;
-  width: 30vw;
+  width: 45vw;
 }
 li > * {
   padding-right: 2%;
@@ -255,4 +255,7 @@ li > * {
 
 button {
   font-family: "Montserrat", sans-serif;
+}
+.channelList{
+  white-space: nowrap;
 }

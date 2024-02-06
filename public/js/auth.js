@@ -1,7 +1,7 @@
 const loginForm = document.forms["login-form"];
 const registerForm = document.forms["register-form"];
 
-loginForm.addEventListener("submit", async (event) => {
+loginForm?.addEventListener("submit", async (event) => {
   try {
     event.preventDefault();
     const body = new FormData(loginForm);
@@ -30,7 +30,7 @@ loginForm.addEventListener("submit", async (event) => {
   }
 });
 
-registerForm.addEventListener("submit", async (event) => {
+registerForm?.addEventListener("submit", async (event) => {
   try {
     event.preventDefault();
     const body = new FormData(registerForm);

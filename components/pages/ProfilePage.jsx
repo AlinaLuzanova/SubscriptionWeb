@@ -17,8 +17,12 @@ module.exports = function ProfilePage({
               {channels.map((channel) => (
                 <li key={channel.id} data-id="subList">
                   <h2>
-                    <a href={`/channels/${channel.id}`} key={channel.id}>
-                      {channel.title}
+                    <a
+                      className="channelList"
+                      href={`/channels/${channel.id}`}
+                      key={channel.id}
+                    >
+                      {channel.title} - {channel.cost}$
                     </a>
                   </h2>
                   <div className="unsubscribeBTNWrap">
@@ -35,12 +39,16 @@ module.exports = function ProfilePage({
               ))}
             </ul>
           </div>
-          <h4 className="totalFee">Total fee for all subscriptions: {cost}$</h4>
+          {cost && (
+            <h4 className="totalFee">
+              Total fee for all subscriptions: {cost}$
+            </h4>
+          )}
         </div>
         <div>
           <div className="mySubscriptions">
             <h2>Subscriptions by {user.email}</h2>
-            {usersSubscriptions && (
+            {usersSubscriptions.length && (
               <ul>
                 {usersSubscriptions.map((sub) => (
                   <li key={sub.id}>
@@ -56,7 +64,9 @@ module.exports = function ProfilePage({
                 ))}
               </ul>
             )}
-            {!usersSubscriptions && <h3>You didn't create any subscription</h3>}
+            {!usersSubscriptions.length && (
+              <h3>You didn't create any subscription</h3>
+            )}
           </div>
           <a className="createSubLink" href={`/subscriptions/new/${user.id}`}>
             Create new subscription

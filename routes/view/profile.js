@@ -35,7 +35,6 @@ router.route("/").get(async (req, res) => {
       },
       raw: true,
     });
-
     res.send(
       res.renderComponent(Profile, {
         user,

@@ -1,6 +1,6 @@
 const { editPageForm } = document.forms;
 
-editPageForm.addEventListener("submit", async (event) => {
+editPageForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
   try {
     const formData = Object.fromEntries(new FormData(editPageForm));

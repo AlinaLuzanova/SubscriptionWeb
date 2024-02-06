@@ -1,6 +1,6 @@
-const { newSubForm } = document.forms;
+const newSubForm = document.forms["newSubForm"];
 
-newSubForm.addEventListener("submit", async (e) => {
+newSubForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
   try {
     const formData = Object.fromEntries(new FormData(newSubForm));
@@ -10,12 +10,23 @@ newSubForm.addEventListener("submit", async (e) => {
       body: JSON.stringify(formData),
     });
     const data = await response.json();
-    if (data.text === "OK") {
-      alert("Subscription created!");
-      window.location.href = "/profile";
-    }
-    if (data.text === "Channel already exist") {
-      alert("Channel already exist");
+
+    switch (response.status) {
+      case 200:
+        alert("Subscription created!");
+        window.location.href = "/profile";
+        break;
+      case 400:
+        alert("Channel already exists");
+        break;
+      case 401:
+        alert("Invalid image URL");
+        break;
+      case 500:
+        alert("Server Error. Please try again later.");
+        break;
+      default:
+        console.log("Unexpected Error");
     }
   } catch (err) {
     console.log(err.message);
