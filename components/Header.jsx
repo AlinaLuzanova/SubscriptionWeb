@@ -1,4 +1,4 @@
-const React = require('react')
+const React = require("react");
 module.exports = function Header({ user }) {
   return (
     <div className="header">
@@ -30,5 +30,5 @@ module.exports = function Header({ user }) {
         </>
       )}
     </div>
-  )
-}
+  );
+};

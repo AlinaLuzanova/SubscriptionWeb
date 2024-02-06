@@ -1,5 +1,5 @@
-const React = require('react')
-const Layout = require('../Layout')
+const React = require("react");
+const Layout = require("../Layout");
 
 module.exports = function HomePage({ channels, title, user }) {
   return (
@@ -43,5 +43,5 @@ module.exports = function HomePage({ channels, title, user }) {
         </ul>
       </div>
     </Layout>
-  )
-}
+  );
+};

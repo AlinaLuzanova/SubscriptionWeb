@@ -1,5 +1,5 @@
-const React = require('react')
-const Layout = require('../Layout')
+const React = require("react");
+const Layout = require("../Layout");
 module.exports = function RegisterPage({ title }) {
   return (
     <Layout title={title}>
@@ -27,5 +27,5 @@ module.exports = function RegisterPage({ title }) {
         </form>
       </div>
     </Layout>
-  )
-}
+  );
+};

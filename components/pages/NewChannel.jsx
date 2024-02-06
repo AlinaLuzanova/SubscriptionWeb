@@ -1,5 +1,5 @@
-const React = require('react')
-const Layout = require('../Layout')
+const React = require("react");
+const Layout = require("../Layout");
 
 module.exports = function NewChannel({ title, user }) {
   return (
@@ -30,5 +30,5 @@ module.exports = function NewChannel({ title, user }) {
         </form>
       </div>
     </Layout>
-  )
-}
+  );
+};

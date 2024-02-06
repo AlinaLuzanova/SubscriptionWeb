@@ -1,10 +1,10 @@
-const router = require('express').Router()
-const { User, UserChannel, Channel } = require('../../db/models')
-const Profile = require('../../components/pages/ProfilePage')
+const router = require("express").Router();
+const { User, UserChannel, Channel } = require("../../db/models");
+const Profile = require("../../components/pages/ProfilePage");
 
-router.route('/').get(async (req, res, next) => {
-  const userId = req.session.user
-  const user = await User.findByPk(userId)
+router.route("/").get(async (req, res, next) => {
+  const userId = req.session.user;
+  const user = await User.findByPk(userId);
   if (user) {
     const channels = await Channel.findAll({
       include: [
@@ -15,9 +15,9 @@ router.route('/').get(async (req, res, next) => {
         },
       ],
       raw: true,
-    })
+    });
 
-    const totalCost = await Channel.sum('cost', {
+    const totalCost = await Channel.sum("cost", {
       include: [
         {
           model: User,
@@ -25,15 +25,15 @@ router.route('/').get(async (req, res, next) => {
           through: { attributes: [] },
         },
       ],
-      group: ['Users.id'],
+      group: ["Users.id"],
       raw: true,
-    })
+    });
     const usersChannels = await Channel.findAll({
       where: {
         creator_id: req.session.user,
       },
       raw: true,
-    })
+    });
 
     res.send(
       res.renderComponent(Profile, {
@@ -42,10 +42,10 @@ router.route('/').get(async (req, res, next) => {
         cost: totalCost,
         usersSubscriptions: usersChannels,
       }),
-    )
+    );
   } else {
-    res.status(404).json({ message: 'User not found' })
+    res.status(404).json({ message: "User not found" });
   }
-})
+});
 
-module.exports = router
+module.exports = router;

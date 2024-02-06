@@ -1,4 +1,4 @@
-const { Model } = require('sequelize')
+const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ Channel }) {
       // define association here
       User.belongsToMany(Channel, {
-        through: 'UserChannels',
-        foreignKey: 'user_id',
-      })
+        through: "UserChannels",
+        foreignKey: "user_id",
+      });
       User.hasMany(Channel, {
-        foreignKey: 'creator_id',
-      })
+        foreignKey: "creator_id",
+      });
     }
   }
   User.init(
@@ -25,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'User',
+      modelName: "User",
     },
-  )
-  return User
-}
+  );
+  return User;
+};

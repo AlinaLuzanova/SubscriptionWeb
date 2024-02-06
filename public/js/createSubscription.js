@@ -1,23 +1,23 @@
-const { newSubForm } = document.forms
+const { newSubForm } = document.forms;
 
-newSubForm.addEventListener('submit', async (e) => {
-  e.preventDefault()
+newSubForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
   try {
-    const formData = Object.fromEntries(new FormData(newSubForm))
-    const response = await fetch('/api/subscriptions/new', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const formData = Object.fromEntries(new FormData(newSubForm));
+    const response = await fetch("/api/subscriptions/new", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
-    })
-    const data = await response.json()
-    if (data.text === 'OK') {
-      alert('Subscription created!')
-      window.location.href = '/profile'
+    });
+    const data = await response.json();
+    if (data.text === "OK") {
+      alert("Subscription created!");
+      window.location.href = "/profile";
     }
-    if (data.text === 'Channel already exist') {
-      alert('Channel already exist')
+    if (data.text === "Channel already exist") {
+      alert("Channel already exist");
     }
   } catch (err) {
-    console.log(err.message)
+    console.log(err.message);
   }
-})
+});

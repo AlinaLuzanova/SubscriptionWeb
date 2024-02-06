@@ -1,4 +1,4 @@
-const { Model } = require('sequelize')
+const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class UserChannel extends Model {
@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'UserChannel',
+      modelName: "UserChannel",
     },
-  )
-  return UserChannel
-}
+  );
+  return UserChannel;
+};

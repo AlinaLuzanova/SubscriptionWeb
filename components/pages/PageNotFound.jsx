@@ -1,5 +1,5 @@
-const React = require('react')
-const Layout = require('../Layout')
+const React = require("react");
+const Layout = require("../Layout");
 
 function PageNotFound() {
   return (
@@ -10,7 +10,7 @@ function PageNotFound() {
         <a href="/">Return to Main Page</a>
       </div>
     </Layout>
-  )
+  );
 }
 
-module.exports = PageNotFound
+module.exports = PageNotFound;

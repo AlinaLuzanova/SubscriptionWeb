@@ -11,35 +11,35 @@ module.exports = {
      * }], {});
      */
     await queryInterface.bulkInsert(
-      'Channels',
+      "Channels",
       [
         {
-          title: 'Flowers',
+          title: "Flowers",
           cost: 100,
-          img: 'https://img.goodfon.ru/original/2880x1800/4/9b/piony-tsvety-listia-lepestvi-butony-peony.jpg',
+          img: "https://img.goodfon.ru/original/2880x1800/4/9b/piony-tsvety-listia-lepestvi-butony-peony.jpg",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          title: 'Wylsacom',
+          title: "Wylsacom",
           cost: 1000,
-          img: 'https://i.ytimg.com/vi/FunnW_yHQ0E/maxresdefault.jpg',
+          img: "https://i.ytimg.com/vi/FunnW_yHQ0E/maxresdefault.jpg",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          title: 'Fashion',
+          title: "Fashion",
           cost: 50,
-          img: 'https://womanel.com/wp-content/uploads/2023/03/5.png',
+          img: "https://womanel.com/wp-content/uploads/2023/03/5.png",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
       ],
       {},
-    )
+    );
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Channels', null, {})
+    await queryInterface.bulkDelete("Channels", null, {});
   },
-}
+};

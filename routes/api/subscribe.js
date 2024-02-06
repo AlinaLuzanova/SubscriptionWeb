@@ -1,47 +1,47 @@
-const router = require('express').Router()
-const { User, UserChannel } = require('../../db/models')
+const router = require("express").Router();
+const { User, UserChannel } = require("../../db/models");
 
-router.route('/:id').post(async (req, res) => {
+router.route("/:id").post(async (req, res) => {
   try {
-    const channelId = req.params.id
-    const userId = req.session.user
+    const channelId = req.params.id;
+    const userId = req.session.user;
 
     const existingUserChannel = await UserChannel.findOne({
       where: { user_id: userId, channel_id: channelId },
-    })
+    });
 
     if (existingUserChannel) {
-      return res.status(409).json({ text: 'Already subscribed' })
+      return res.status(409).json({ text: "Already subscribed" });
     }
 
     const newUserChannel = await UserChannel.create({
       user_id: userId,
       channel_id: channelId,
-    })
+    });
 
-    res.status(200).json({ text: 'OK' })
+    res.status(200).json({ text: "OK" });
   } catch (e) {
-    console.error(e)
-    res.status(500).end()
+    console.error(e);
+    res.status(500).end();
   }
-})
+});
 
-router.route('/:id').delete(async (req, res) => {
+router.route("/:id").delete(async (req, res) => {
   try {
-    const channelId = req.params.id
-    const userId = req.session.user
+    const channelId = req.params.id;
+    const userId = req.session.user;
 
     const result = await UserChannel.destroy({
       where: { user_id: userId, channel_id: channelId },
-    })
+    });
 
     if (result > 0) {
-      return res.status(200).json({ text: 'OK' })
+      return res.status(200).json({ text: "OK" });
     }
-    return res.status(404).json({ text: 'Error' })
+    return res.status(404).json({ text: "Error" });
   } catch (e) {
-    console.log(e)
-    return res.status(500).end()
+    console.log(e);
+    return res.status(500).end();
   }
-})
-module.exports = router
+});
+module.exports = router;

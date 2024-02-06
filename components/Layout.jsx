@@ -1,6 +1,6 @@
-const React = require('react')
-const Header = require('./Header')
-function Layout({ title = 'Home Page', children, user }) {
+const React = require("react");
+const Header = require("./Header");
+function Layout({ title = "Home Page", children, user }) {
   return (
     <html lang="en">
       <head>
@@ -30,7 +30,7 @@ function Layout({ title = 'Home Page', children, user }) {
         {children}
       </body>
     </html>
-  )
+  );
 }
 
-module.exports = Layout
+module.exports = Layout;

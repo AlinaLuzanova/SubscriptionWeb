@@ -1,5 +1,5 @@
-const React = require('react')
-const Layout = require('../Layout')
+const React = require("react");
+const Layout = require("../Layout");
 
 module.exports = function EditPage({ title, user, channel }) {
   return (
@@ -35,5 +35,5 @@ module.exports = function EditPage({ title, user, channel }) {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};

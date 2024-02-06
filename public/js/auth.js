@@ -1,37 +1,37 @@
-const loginForm = document.forms['login-form']
-const registerForm = document.forms['register-form']
+const loginForm = document.forms["login-form"];
+const registerForm = document.forms["register-form"];
 
-loginForm.addEventListener('submit', async (event) => {
+loginForm.addEventListener("submit", async (event) => {
   try {
-    event.preventDefault()
-    const body = new FormData(loginForm)
-    console.log(body)
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    event.preventDefault();
+    const body = new FormData(loginForm);
+    console.log(body);
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(body)),
-    })
-    const data = await response.json()
-    if (data.message === 'OK') {
-      window.location.href = '/profile'
-      alert('Successful!')
+    });
+    const data = await response.json();
+    if (data.message === "OK") {
+      window.location.href = "/profile";
+      alert("Successful!");
     } else {
-      alert('Unsuccessful!')
+      alert("Unsuccessful!");
     }
   } catch (err) {
-    console.log(err.message)
+    console.log(err.message);
   }
-})
-registerForm.addEventListener('submit', async (event) => {
-  event.preventDefault()
+});
+registerForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
   try {
-    const body = new FormData(registerForm)
-    console.log('----------', body)
-    const response = await fetch('/api/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const body = new FormData(registerForm);
+    console.log("----------", body);
+    const response = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(body)),
-    })
+    });
     /**
     const data = await response.json()
     console.log(data)
@@ -42,8 +42,8 @@ registerForm.addEventListener('submit', async (event) => {
     } else {
       alert('Unsuccessful!')
     }
- **/
+ * */
   } catch (err) {
-    console.log(err.message)
+    console.log(err.message);
   }
-})
+});
