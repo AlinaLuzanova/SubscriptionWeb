@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  application:
+    build: .
+    container_name: app
+    restart: on-failure
+    environment:
+      - PORT=4000
+      - DB_PROD_URL=postgres://postgres:password@db:5432/channels
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - 4000:4000
+  db:
+    image: postgres
+    container_name: db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=channels
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
