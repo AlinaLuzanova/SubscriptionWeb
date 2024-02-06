@@ -167,10 +167,10 @@ h1 {
   padding-top: 8vh;
 }
 .h3Container {
-  background-color: #9663ff;
-  border-radius: 20px;
+  background-color: var(--auth-btn-color);
+  border-radius: 50px;
   width: fit-content;
-  padding: 0 1%;
+  padding: 0 2%;
   max-width: 80%;
   line-height: 1.5;
 }
